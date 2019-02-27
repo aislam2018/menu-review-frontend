@@ -1,0 +1,5 @@
+export const loadRestaurants = (restaurants) => ({ type: 'LOAD_RESTAURANTS', payload: restaurants })
+export const selectItem = (itemId) => ({ type: 'SELECT_ITEM', payload: itemId })
+export const addComment = (commentObj) => ({ type: 'ADD_COMMENT', payload: commentObj})
+export const searchRestaurant = (searchTerm) => ({ type: 'SEARCH_RESTAURANT', payload: searchTerm})
+export const selectRestaurant = (resId) => ({ type: 'SELECT_RESTAURANT', payload: resId })
