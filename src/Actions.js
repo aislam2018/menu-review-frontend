@@ -2,4 +2,4 @@ export const loadRestaurants = (restaurants) => ({ type: 'LOAD_RESTAURANTS', pay
 export const selectItem = (itemId) => ({ type: 'SELECT_ITEM', payload: itemId })
 export const addComment = (commentObj) => ({ type: 'ADD_COMMENT', payload: commentObj})
 export const searchRestaurant = (searchTerm) => ({ type: 'SEARCH_RESTAURANT', payload: searchTerm})
-export const selectRestaurant = (resId) => ({ type: 'SELECT_RESTAURANT', payload: resId })
+export const getRestaurant = (resId) => ({ type: 'GET_RESTAURANT', payload: resId })

@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 
 let  MenuContainer = (props) => {
 
-  let mapItems = props.items.map(item => <li key={item.id} onClick={() => props.getItem(item.id)}>{item.name}</li> )
+  let mapItems = props.restaurant.items.map(item => <li key={item.id} onClick={() => props.getItem(item.id)}>{item.name}</li> )
   return(
-    <div>{props.items.length !== 0 ? (<div>
-          <h1>{ props.currentRes.name}</h1>
-          <h3>{props.currentRes.address}</h3>
+    <div>{props.restaurant.items.length !== 0 ? (<div>
+          <h1>{ props.restaurant.name}</h1>
+          <h3>{props.restaurant.address}</h3>
           <h2>Menu</h2>
           <ul>{ mapItems }</ul>
         </div>) : null }</div>

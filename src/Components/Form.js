@@ -13,7 +13,7 @@ import { getComment } from '../Thunks'
     handleSubmit = (event) => {
       event.preventDefault()
       let commentObj = this.state
-
+      let itemId = this. props.itemId
       this.props.getComment(commentObj)
       this.setState({content: ""})
     }

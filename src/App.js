@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { getRestaurants } from './Thunks'
 
 
+
 class App extends Component {
 
   componentDidMount(){
@@ -15,20 +16,21 @@ class App extends Component {
 }
 
   render() {
-    console.log(this.props)
+console.log("APP", this.props)
       let isItemEmpty = Object.keys(this.props.currentItem).length === 0
+      let isResEmpty = Object.keys(this.props.selectedRestaurant).length === 0
 
     return (
       <div>
         <div>
-          <h1>Bites Review</h1>
+          <h1>Menu Review</h1>
           <br></br>
           <h5>Search For a Restaurant</h5>
           <SearchForm/>
         </div>
         <RestaurantContainer restaurants={this.props.restaurants|| [{name:""}]}></RestaurantContainer>
 
-        {this.props.restaurants.length === 0  ? null : <MenuContainer items={this.props.restaurants[0].items} currentRes={this.props.restaurants[0]}/>}
+        {isResEmpty  ? null : <MenuContainer restaurant={this.props.selectedRestaurant}/>}
          { isItemEmpty ? null : <ReviewContainer item={this.props.currentItem} />}
       </div>
     );
@@ -38,7 +40,10 @@ const mapStateToProps = (state) => {
 
   return {
     restaurants: state.restaurants,
-    currentItem: state.selectedItem
+    currentItem: state.selectedItem,
+    selectedRestaurant: state.selectedRestaurant,
+    selectedItem: state.selectedItem,
+    comments: state.comments
   }
 }
 

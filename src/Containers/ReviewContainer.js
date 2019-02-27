@@ -11,7 +11,7 @@ let ReviewContainer = (props) => {
         <h2>{item.name} ${item.price}</h2>
         <h4>{"Ingredients: " + item.description}</h4>
         <br></br>
-        <Form ></Form>
+        <Form itemId={item.id}></Form>
 
         <h3>Reviews:</h3>
         <ul>{commentsMapped}</ul>
