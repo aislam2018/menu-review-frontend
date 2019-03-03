@@ -10,6 +10,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers/reducer'
 
 
+
 const store = createStore(reducer, applyMiddleware(thunk))
 
 

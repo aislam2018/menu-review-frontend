@@ -1,38 +1,62 @@
 import React, { Component } from 'react';
-import MenuContainer from './Containers/MenuContainer'
+import { Route, Switch, Redirect } from "react-router-dom";
 import ReviewContainer from './Containers/ReviewContainer'
 import SearchForm from './Components/SearchForm'
 import RestaurantContainer from './Containers/RestaurantContainer'
+import Signup from './Components/Signup'
+import Login from './Components/Login'
+import Navbar from './Components/Navbar'
+
+import Home from './Components/Home'
 
 import { connect } from 'react-redux'
 import { getRestaurants } from './Thunks'
+import { BrowserRouter } from "react-router-dom";
 
 
 
 class App extends Component {
 
   componentDidMount(){
+
+    if (localStorage.getItem("token")) {
     this.props.getRestaurants()
+    } else {
+      this.props.history.push("/login");
+    }
 }
 
   render() {
 console.log("APP", this.props)
       let isItemEmpty = Object.keys(this.props.currentItem).length === 0
-      let isResEmpty = Object.keys(this.props.selectedRestaurant).length === 0
+
 
     return (
+      <BrowserRouter>
       <div>
+        <h1>Menu Review</h1>
+        <Navbar />
+        <Switch>
+          <Route path='/restaurants' render={() => <>
+            <h5>Search For a Restaurant</h5>
+            <SearchForm/>
+            {this.props.restaurants.length !== 0 ? (<RestaurantContainer restaurants={this.props.restaurants|| [{name:""}]}/>) : null}
+              </>}/>
+          <Route path='/login' render={() => <><Login/><Signup/></>}/>
+          <Route path='/' component={Home} />
+          </Switch>
         <div>
-          <h1>Menu Review</h1>
-          <br></br>
-          <h5>Search For a Restaurant</h5>
-          <SearchForm/>
-        </div>
-        <RestaurantContainer restaurants={this.props.restaurants|| [{name:""}]}></RestaurantContainer>
 
-        {isResEmpty  ? null : <MenuContainer restaurant={this.props.selectedRestaurant}/>}
+
+        </div>
+
+
+
          { isItemEmpty ? null : <ReviewContainer item={this.props.currentItem} />}
+
+
       </div>
+    </BrowserRouter>
     );
   }
 }
@@ -41,7 +65,6 @@ const mapStateToProps = (state) => {
   return {
     restaurants: state.restaurants,
     currentItem: state.selectedItem,
-    selectedRestaurant: state.selectedRestaurant,
     selectedItem: state.selectedItem,
     comments: state.comments
   }

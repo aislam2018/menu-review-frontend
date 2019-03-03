@@ -3,6 +3,7 @@ const initialState = {
   selectedItem: {},
   searchTerm: "",
   selectedRestaurant: {},
+  user: {}
 
 }
 
@@ -20,7 +21,7 @@ const reducer = (state = initialState, action) => {
 
     }
     case 'ADD_COMMENT': {
-      return {...state, selectedItem:{...state.selectedItem, comments:[...state.selectedItem.comments, action.payload]}, comments:[action.payload, ...state.comments]}
+      return {...state, selectedItem:{...state.selectedItem, comments:[...state.selectedItem.comments, action.payload]}}
     }
     case 'SEARCH_RESTAURANT': {
       return {...state, searchTerm: action.payload}
@@ -30,9 +31,14 @@ const reducer = (state = initialState, action) => {
       let selectedRestaurant = state.restaurants.find(res => res.id === action.payload)
       return {...state, selectedRestaurant: selectedRestaurant}
     }
+    case 'CREATE_USER': {
+      return { ...state, user: action.payload }
+
+    }
     default:
       return state
   }
+
 }
 
 export default reducer
