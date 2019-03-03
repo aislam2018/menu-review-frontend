@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
-import ReviewContainer from './Containers/ReviewContainer'
+
 
 import RestaurantContainer from './Containers/RestaurantContainer'
 import Signup from './Components/Signup'
@@ -28,7 +28,7 @@ class App extends Component {
 
   render() {
 console.log("APP", this.props)
-      let isItemEmpty = Object.keys(this.props.currentItem).length === 0
+
 
 
     return (
@@ -51,7 +51,7 @@ console.log("APP", this.props)
 
 
 
-         { isItemEmpty ? null : <ReviewContainer item={this.props.currentItem} />}
+
 
 
       </div>

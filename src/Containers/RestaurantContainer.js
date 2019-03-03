@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 
 
 let  RestaurantContainer = (props) => {
+  console.log(props)
 
 
   let mapRestaurants = props.restaurants.filter(restaurant =>
