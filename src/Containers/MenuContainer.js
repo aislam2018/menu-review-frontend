@@ -1,6 +1,7 @@
 import React from 'react'
 import { getItem } from '../Thunks'
 import { connect } from 'react-redux'
+import { Link } from "react-router-dom";
 
 let  MenuContainer = (props) => {
 
@@ -8,6 +9,7 @@ let  MenuContainer = (props) => {
   return(
 
   <div>{props.restaurant.items.length !== 0 ? (<div>
+      <Link to="/restaurants">Back to restaurants</Link>
         <h1>{ props.restaurant.name }</h1>
         <h3>{props.restaurant.address}</h3>
         <h2>Menu</h2>

@@ -1,8 +1,11 @@
 import React from 'react'
- import { getRestaurant } from '../Actions'
+
 import { connect } from 'react-redux'
 import MenuContainer from './MenuContainer'
 import {Route, Switch} from 'react-router-dom'
+import SearchForm from '../Components/SearchForm'
+import { Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 
 let  RestaurantContainer = (props) => {
@@ -10,7 +13,7 @@ let  RestaurantContainer = (props) => {
 
   let mapRestaurants = props.restaurants.filter(restaurant =>
     restaurant.name.toLowerCase().includes(props.searchTerm.toLowerCase()))
-    .map(res => <li key={res.id} onClick={() => props.getRestaurant(res.id)} >{res.name}</li> ) || []
+    .map(res => <li key={res.id} ><Link to={`/restaurants/${res.id}`}>{res.name}</Link></li> ) || []
 
     let showRes = (routerProps) => {
       let id = parseInt(routerProps.match.params.id)
@@ -21,6 +24,7 @@ let  RestaurantContainer = (props) => {
     }
 
   return(
+    <BrowserRouter>
     <div>
       <Switch>
         <Route path="/restaurants/:id" render={(routerProps)=>
@@ -31,6 +35,8 @@ let  RestaurantContainer = (props) => {
           }></Route>
         <Route path="/restaurants" render={()=>
             <div>
+              <h5>Search For a Restaurant</h5>
+              <SearchForm/>
               <h2>Restaurants</h2>
               <ul>{ mapRestaurants }</ul>
             </div>
@@ -39,6 +45,7 @@ let  RestaurantContainer = (props) => {
 
       </Switch>
       </div>
+      </BrowserRouter>
   )
 }
 const mapStateToProps = (state) => {
@@ -49,8 +56,6 @@ const mapStateToProps = (state) => {
    }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  getRestaurant: (resId) => dispatch(getRestaurant(resId))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantContainer)
+
+export default connect(mapStateToProps)(RestaurantContainer)

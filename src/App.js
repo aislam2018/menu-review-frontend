@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import ReviewContainer from './Containers/ReviewContainer'
-import SearchForm from './Components/SearchForm'
+
 import RestaurantContainer from './Containers/RestaurantContainer'
 import Signup from './Components/Signup'
 import Login from './Components/Login'
@@ -38,8 +38,7 @@ console.log("APP", this.props)
         <Navbar />
         <Switch>
           <Route path='/restaurants' render={() => <>
-            <h5>Search For a Restaurant</h5>
-            <SearchForm/>
+
             {this.props.restaurants.length !== 0 ? (<RestaurantContainer restaurants={this.props.restaurants|| [{name:""}]}/>) : null}
               </>}/>
           <Route path='/login' render={() => <><Login/><Signup/></>}/>
