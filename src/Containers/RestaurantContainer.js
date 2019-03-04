@@ -5,11 +5,11 @@ import MenuContainer from './MenuContainer'
 import {Route, Switch} from 'react-router-dom'
 import SearchForm from '../Components/SearchForm'
 import { Link } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 
 let  RestaurantContainer = (props) => {
-  console.log(props)
+
 
 
   let mapRestaurants = props.restaurants.filter(restaurant =>
@@ -25,7 +25,7 @@ let  RestaurantContainer = (props) => {
     }
 
   return(
-    <BrowserRouter>
+
     <div>
       <Switch>
         <Route path="/restaurants/:id" render={(routerProps)=>
@@ -46,7 +46,7 @@ let  RestaurantContainer = (props) => {
 
       </Switch>
       </div>
-      </BrowserRouter>
+
   )
 }
 const mapStateToProps = (state) => {
@@ -59,4 +59,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps)(RestaurantContainer)
+export default withRouter(connect(mapStateToProps)(RestaurantContainer))

@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { Link } from "react-router-dom";
 import {Route, Switch} from 'react-router-dom'
 import ReviewContainer from './ReviewContainer'
-import { BrowserRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+
 
 let  MenuContainer = (props) => {
 
@@ -16,7 +17,7 @@ let  MenuContainer = (props) => {
   let mapItems = props.restaurant.items.map(item => <li key={item.id} onClick={() => props.getItem(item.id)}><Link to={`/restaurants/${props.restaurant.id}/item/${item.id}`}>{item.name}</Link></li> )
 
   return(
-    <BrowserRouter>
+
     <Switch>
     <Route path="/restaurants/:id/item/:id" render={()=>
         <div>{ isItemEmpty ? null : <ReviewContainer item={props.selectedItem} />}</div>
@@ -31,7 +32,7 @@ let  MenuContainer = (props) => {
         <ul>{ mapItems }</ul>
       </div>) : null }</div> }/>
       </Switch>
-      </BrowserRouter>
+
 
   )
 
@@ -49,4 +50,4 @@ const mapDispatchToProps = (dispatch) => ({
   getItem: (itemId) => dispatch(getItem(itemId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MenuContainer))
