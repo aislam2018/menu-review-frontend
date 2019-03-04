@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 
-
 import RestaurantContainer from './Containers/RestaurantContainer'
 import Signup from './Components/Signup'
 import Login from './Components/Login'
@@ -11,7 +10,7 @@ import Home from './Components/Home'
 
 import { connect } from 'react-redux'
 import { getRestaurants } from './Thunks'
-import { BrowserRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 
 
@@ -23,6 +22,18 @@ class App extends Component {
     this.props.getRestaurants()
     } else {
       this.props.history.push("/login");
+
+    }
+}
+componentDidUpdate(previousState, previousProps){
+
+    if(previousState.restaurants.length === 0){
+
+      if (localStorage.getItem("token")) {
+
+        this.props.getRestaurants()
+
+      }
     }
 }
 
@@ -32,7 +43,7 @@ console.log("APP", this.props)
 
 
     return (
-      <BrowserRouter>
+
       <div>
         <h1>Menu Review</h1>
         <Navbar />
@@ -46,16 +57,10 @@ console.log("APP", this.props)
           </Switch>
         <div>
 
-
         </div>
 
-
-
-
-
-
       </div>
-    </BrowserRouter>
+
     );
   }
 }
@@ -63,9 +68,9 @@ const mapStateToProps = (state) => {
 
   return {
     restaurants: state.restaurants,
-    currentItem: state.selectedItem,
     selectedItem: state.selectedItem,
-    comments: state.comments
+    user: state.user
+
   }
 }
 
@@ -74,4 +79,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

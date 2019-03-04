@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 let ReviewContainer = (props) => {
 
   let { item } = props;
-  let commentsMapped = item.comments.map(comment => <Comment key={comment.id} comment={comment} />);
+  let commentsMapped = item.comments.map(comment => <Comment key={comment.id} comment={comment} />) || [];
     return (
       <div>
         <Link to={`/restaurants/${item.restaurant.id}`}>Back to Menu</Link>

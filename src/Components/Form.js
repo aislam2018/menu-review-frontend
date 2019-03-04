@@ -12,8 +12,10 @@ import { getComment } from '../Thunks'
 
     handleSubmit = (event) => {
       event.preventDefault()
-      let commentObj = this.state
-      let itemId = this. props.itemId
+      let comment = this.state.content
+      let itemId = this.props.itemId
+
+      let commentObj = {comment:comment, itemId:itemId}
       this.props.getComment(commentObj)
       this.setState({content: ""})
     }
@@ -33,10 +35,6 @@ const mapDispatchToProps = (dispatch) => ({
   getComment: (commentObj) => dispatch(getComment(commentObj))
 })
 
-// const mapStateToProps = (state) => {
-//   return {
-//     itemId: state.selectedItem.id
-//   }
-// }
+
 
 export default connect(null, mapDispatchToProps)(Form)
