@@ -21,7 +21,22 @@ const reducer = (state = initialState, action) => {
 
     }
     case 'ADD_COMMENT': {
-      return {...state, selectedItem:{...state.selectedItem, comments:[...state.selectedItem.comments, action.payload]}}
+      return {...state, selectedItem:{...state.selectedItem, comments:[action.payload, ...state.selectedItem.comments]}}
+    }
+    case 'EDIT_COMMENT': {
+       let updatedComments = state.selectedItem.comments.map( comment => {
+         if (comment.id === action.payload.id) {
+           return action.payload
+         } else {
+           return comment
+         }
+       })
+
+      return {...state, selectedItem:{...state.selectedItem, comments: updatedComments}}
+    }
+    case 'DELETE_COMMENT': {
+      let updatedComments = state.selectedItem.comments.filter(comment => comment.id !== action.payload.id)
+        return {...state, selectedItem:{...state.selectedItem, comments: updatedComments}}
     }
     case 'SEARCH_RESTAURANT': {
       return {...state, searchTerm: action.payload}

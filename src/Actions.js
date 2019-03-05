@@ -5,3 +5,5 @@ export const searchRestaurant = (searchTerm) => ({ type: 'SEARCH_RESTAURANT', pa
 export const getRestaurant = (resId) => ({ type: 'GET_RESTAURANT', payload: resId })
 export const createUser = (userObj) => ({ type: 'CREATE_USER', payload: userObj })
 export const loginUser = (userObj) => ({ type: 'LOGIN_USER', payload: userObj })
+export const editComment = (editedCommentObj) => ({ type: 'EDIT_COMMENT', payload: editedCommentObj})
+export const deleteComment = (deleteObj) => ({ type: 'DELETE_COMMENT', payload: deleteObj})

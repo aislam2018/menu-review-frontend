@@ -1,5 +1,5 @@
 
-import { loadRestaurants, selectItem, addComment, createUser, loginUser } from './Actions'
+import { loadRestaurants, selectItem, addComment, createUser, loginUser, editComment, deleteComment } from './Actions'
 
 export const getRestaurants = () => dispatch => {
   return fetch("http://localhost:3000/api/v1/restaurants", {
@@ -41,6 +41,34 @@ export const getComment = (commentObj) => dispatch => {
         body:JSON.stringify({content:commentObj.comment, item_id:commentObj.itemId})
       }).then(res => res.json())
       .then(data => dispatch(addComment(data)))
+}
+export const getEditedComment = (editedCommentObj) => dispatch => {
+
+  return fetch(`http://localhost:3000/api/v1/items/${editedCommentObj.itemId}/comments/${editedCommentObj.commentId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accepts: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+      },
+        body:JSON.stringify({content:editedCommentObj.comment, item_id:editedCommentObj.itemId})
+      }).then(res => res.json())
+      .then(data => dispatch(editComment(data)))
+}
+
+export const getDeleteComment = (deleteObj, redirect) => dispatch => {
+  console.log('redirect', redirect)
+
+  return fetch(`http://localhost:3000/api/v1/items/${deleteObj.itemId}/comments/${deleteObj.commentId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accepts: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+
+    }).then(res => redirect())
+
 }
 
 export const getUserInfo = (userObj) => dispatch => {

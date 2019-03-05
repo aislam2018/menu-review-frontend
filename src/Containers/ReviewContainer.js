@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Form from '../Components/Form'
 
 import Comment from '../Components/Comment'
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-let ReviewContainer = (props) => {
+class ReviewContainer extends Component {
 
-  let { item } = props;
-  let commentsMapped = item.comments.map(comment => <Comment key={comment.id} comment={comment} />) || [];
+  render () {
+  let { item } = this.props;
+
+    let redirect = () => this.props.history.push(`/restaurants/${item.restaurant.id}/item`)
+  let commentsMapped = item.comments.map(comment => <Comment key={comment.id} comment={comment} itemId={item.id} redirect ={redirect}/>) || [];
     return (
       <div>
         <Link to={`/restaurants/${item.restaurant.id}`}>Back to Menu</Link>
@@ -20,8 +24,9 @@ let ReviewContainer = (props) => {
         <ul>{commentsMapped}</ul>
       </div>
     )
+  }
 }
 
 
 
-export default ReviewContainer;
+export default withRouter(ReviewContainer);
