@@ -11,9 +11,10 @@ const SearchForm = (props) =>  {
 
     }
       return (
-        <form>
-          <input name="searchTerm" type="text" value={props.searchTerm} onChange={changeHandle}/>
-        </form>
+        <div className="search-box">
+          <input className="search-txt" name="searchTerm" type="text"
+            placeholder="Search For A Restaurant" value={props.searchTerm} onChange={changeHandle}/>
+        </div>
       )
 
 }

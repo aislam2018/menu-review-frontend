@@ -10,8 +10,6 @@ import { withRouter } from "react-router-dom";
 
 let  RestaurantContainer = (props) => {
 
-
-
   let mapRestaurants = props.restaurants.filter(restaurant =>
     restaurant.name.toLowerCase().includes(props.searchTerm.toLowerCase()))
     .map(res => <li key={res.id} ><Link to={`/restaurants/${res.id}`}>{res.name}</Link></li> ) || []
@@ -36,8 +34,8 @@ let  RestaurantContainer = (props) => {
           }></Route>
         <Route path="/restaurants" render={()=>
             <div>
-              <h5>Search For a Restaurant</h5>
               <SearchForm/>
+              <br></br>
               <h2>Restaurants</h2>
               <ul>{ mapRestaurants }</ul>
             </div>
@@ -56,7 +54,5 @@ const mapStateToProps = (state) => {
     selectedRestaurant: state.selectedRestaurant
    }
 }
-
-
 
 export default withRouter(connect(mapStateToProps)(RestaurantContainer))
