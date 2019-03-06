@@ -17,7 +17,7 @@ class ReviewContainer extends Component {
         <Link to={`/restaurants/${item.restaurant.id}`}>Back to Menu</Link>
         <h2>{item.name} ${item.price}</h2>
         <h4>{"Ingredients: " + item.description}</h4>
-        <img src={item.image} alt=""/>
+        <img className="image" src={item.image} alt=""/>
         <br></br>
         <Form itemId={item.id}></Form>
 

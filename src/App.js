@@ -44,9 +44,10 @@ console.log("APP", this.props)
 
     return (
 
-      <div>
-        <h1>Menu Review</h1>
-
+      <div className="parent-div">
+        <h1 className="neon" data-text="[Menu_Review]">[Menu_Review]</h1>
+          <br></br>
+          <br></br>
         <Navbar />
         <br></br>
         <br></br>

@@ -23,10 +23,12 @@ import { getComment } from '../Thunks'
     render (){
 
       return (
-        <form onSubmit={this.handleSubmit}>
-          <input name="content" type="text" value={this.state.content} onChange={this.changeHandle}/>
-          <button>Add Review</button>
-        </form>
+
+          <form onSubmit={this.handleSubmit}>
+            <input className="comment-txt" name="content" type="text" value={this.state.content} onChange={this.changeHandle}/>
+            <button>Add Review</button>
+          </form>
+
       )
     }
 }

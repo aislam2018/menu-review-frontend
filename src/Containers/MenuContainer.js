@@ -29,7 +29,7 @@ let  MenuContainer = (props) => {
         <h1>{ props.restaurant.name }</h1>
         <h3>{props.restaurant.address}</h3>
         <h2>Menu</h2>
-        <ul>{ mapItems }</ul>
+        <ul className="menu-ul">{ mapItems }</ul>
       </div>) : null }</div> }/>
       </Switch>
 

@@ -37,7 +37,7 @@ let  RestaurantContainer = (props) => {
               <SearchForm/>
               <br></br>
               <h2>Restaurants</h2>
-              <ul>{ mapRestaurants }</ul>
+              <ul className="res-ul">{ mapRestaurants }</ul>
             </div>
         }/>
 
