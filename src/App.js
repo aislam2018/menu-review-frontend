@@ -46,7 +46,10 @@ console.log("APP", this.props)
 
       <div>
         <h1>Menu Review</h1>
+
         <Navbar />
+        <br></br>
+        <br></br>
         <Switch>
           <Route path='/restaurants' render={() => <>
 

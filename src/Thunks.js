@@ -1,5 +1,5 @@
 
-import { loadRestaurants, selectItem, addComment, createUser, loginUser, editComment, deleteComment } from './Actions'
+import { loadRestaurants, selectItem, addComment, createUser, loginUser, editComment } from './Actions'
 
 export const getRestaurants = () => dispatch => {
   return fetch("http://localhost:3000/api/v1/restaurants", {

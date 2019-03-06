@@ -7,3 +7,4 @@ export const createUser = (userObj) => ({ type: 'CREATE_USER', payload: userObj 
 export const loginUser = (userObj) => ({ type: 'LOGIN_USER', payload: userObj })
 export const editComment = (editedCommentObj) => ({ type: 'EDIT_COMMENT', payload: editedCommentObj})
 export const deleteComment = (deleteObj) => ({ type: 'DELETE_COMMENT', payload: deleteObj})
+export const logoutUser = () => ({ type: 'LOGOUT_USER' })

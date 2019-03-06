@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
 
     }
     case 'ADD_COMMENT': {
-      return {...state, selectedItem:{...state.selectedItem, comments:[action.payload, ...state.selectedItem.comments]}}
+      return {...state, selectedItem:{...state.selectedItem, comments:[...state.selectedItem.comments, action.payload]}}
     }
     case 'EDIT_COMMENT': {
        let updatedComments = state.selectedItem.comments.map( comment => {
@@ -52,6 +52,11 @@ const reducer = (state = initialState, action) => {
     }
     case 'LOGIN_USER': {
       return { ...state, user: action.payload }
+
+    }
+    case 'LOGOUT_USER': {
+      localStorage.removeItem('token')
+      return initialState
 
     }
     default:

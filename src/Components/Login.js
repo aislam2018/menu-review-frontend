@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { getLogin } from '../Thunks'
+import { withRouter } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class Login extends React.Component {
       username: "",
       password: ""
     });
+    this.props.history.push('/restaurants')
   };
 
   render() {
@@ -50,4 +52,4 @@ const mapDispatchToProps = (dispatch) => ({
     getLogin: userObj => dispatch(getLogin(userObj))
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));
