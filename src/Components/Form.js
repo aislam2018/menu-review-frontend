@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getComment } from '../Thunks'
+import { Button, Form as CommentForm} from 'semantic-ui-react'
 
   class Form extends Component {
 
@@ -24,12 +25,14 @@ import { getComment } from '../Thunks'
 
       return (
 
-          <form onSubmit={this.handleSubmit}>
+          <CommentForm onSubmit={this.handleSubmit}>
+            <CommentForm.Field>
             <input className="comment-txt" placeholder="Add A Review" name="content"
               type="text" value={this.state.content} onChange={this.changeHandle}/>
+          </CommentForm.Field>
             <br/>
-            <button>Add Review</button>
-          </form>
+            <Button type='submit'>Add A Review</Button>
+          </CommentForm>
 
       )
     }

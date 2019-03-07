@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import SearchForm from '../Components/SearchForm'
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import { Segment } from 'semantic-ui-react'
+
 
 let  RestaurantContainer = (props) => {
 
@@ -37,7 +37,8 @@ let  RestaurantContainer = (props) => {
               <SearchForm/>
               <br></br>
               <h2>Restaurants</h2>
-              <ul className="res-ul">{ mapRestaurants }</ul>
+              <ul className="res-ul">
+                { mapRestaurants }</ul>
             </div>
         }/>
 

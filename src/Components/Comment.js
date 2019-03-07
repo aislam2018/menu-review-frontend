@@ -3,6 +3,7 @@ import EditForm from './EditForm'
 import { connect } from 'react-redux'
 import { getDeleteComment } from '../Thunks'
 import { withRouter } from "react-router-dom";
+import { Button } from 'semantic-ui-react'
 
 class Comment extends Component{
 
@@ -35,8 +36,8 @@ class Comment extends Component{
                                      /> :
         (<div>
           <li>{this.props.comment.content}</li>
-            <button onClick={this.handleClick}>Edit</button>
-            <button onClick={this.handleDelete}>Delete</button>
+            <Button onClick={this.handleClick}>Edit</Button>
+            <Button onClick={this.handleDelete} color='red'>Delete</Button>
           </div>) }
       </div>
     )

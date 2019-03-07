@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { getLogin } from '../Thunks'
 import { withRouter } from "react-router-dom";
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 class Login extends React.Component {
   state = {
