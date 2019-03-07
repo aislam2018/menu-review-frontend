@@ -34,7 +34,7 @@ class Comment extends Component{
                                      handleSubmit={this.handleSubmit}
                                      /> :
         (<div>
-            <li>{this.props.comment.content}</li>
+          <li>{this.props.comment.content}</li>
             <button onClick={this.handleClick}>Edit</button>
             <button onClick={this.handleDelete}>Delete</button>
           </div>) }

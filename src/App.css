@@ -65,15 +65,26 @@ nav a {
 
 .res-ul {
   list-style: none;
+  padding-left: 0px;
+
 }
 .reviews-ul {
   list-style: none;
+  padding-left: 0px;
+  word-wrap: break-word;
 }
 .menu-ul {
     list-style: none;
+    padding-left: 0px;
 }
 .parent-div {
+  text-align: center
+}
+
+.child-div{
   display: inline-block;
+  text-align: center;
+vertical-align: middle;
 }
 .neon {
 
@@ -109,11 +120,11 @@ nav a {
   filter: blur(40px);
 }
 
-.parent-div {
+/* .parent-div {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 .reviews {
   float:right;
 }
