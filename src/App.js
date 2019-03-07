@@ -44,7 +44,7 @@ console.log("APP", this.props)
 
     return (
 
-      <div className="parent-div">
+      <div>
         <h1 className="neon" data-text="[Menu_Review]">[Menu_Review]</h1>
           <br></br>
           <br></br>
@@ -56,7 +56,7 @@ console.log("APP", this.props)
 
             {this.props.restaurants.length !== 0 ? (<RestaurantContainer restaurants={this.props.restaurants|| [{name:""}]}/>) : null}
               </>}/>
-          <Route path='/login' render={() => <><Login/><Signup/></>}/>
+            <Route path='/login' render={() => <><Login/><br/><hr/><br/><Signup/></>}/>
           <Route path='/' component={Home} />
           </Switch>
         <div>

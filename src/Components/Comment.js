@@ -27,7 +27,7 @@ class Comment extends Component{
   render () {
 
     return(
-      <div>
+      <div >
 
       {this.state.clicked? <EditForm comment={this.props.comment}
                                      itemId={this.props.itemId}

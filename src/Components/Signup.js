@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { getUserInfo } from '../Thunks'
 import { withRouter } from "react-router-dom";
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 class Signup extends React.Component {
   state = {
@@ -27,7 +28,9 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
+      <Form onSubmit={this.submitHandler}>
+        <Form.Field>
+
         <input
           type="text"
           placeholder="username"
@@ -35,6 +38,8 @@ class Signup extends React.Component {
           name="username"
           onChange={this.changeHandler}
         />
+      </Form.Field>
+      <Form.Field>
         <input
           type="password"
           placeholder="password"
@@ -42,8 +47,9 @@ class Signup extends React.Component {
           name="password"
           onChange={this.changeHandler}
         />
-        <button>Sign Up</button>
-      </form>
+    </Form.Field>
+      <Button type='submit'>Signup</Button>
+      </Form>
     );
   }
 }

@@ -25,7 +25,8 @@ import { getComment } from '../Thunks'
       return (
 
           <form onSubmit={this.handleSubmit}>
-            <input className="comment-txt" name="content" type="text" value={this.state.content} onChange={this.changeHandle}/>
+            <input className="comment-txt" placeholder="Add A Review" name="content"
+              type="text" value={this.state.content} onChange={this.changeHandle}/>
             <button>Add Review</button>
           </form>
 

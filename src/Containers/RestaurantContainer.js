@@ -24,7 +24,7 @@ let  RestaurantContainer = (props) => {
 
   return(
 
-    <div>
+    <div className="parent-div">
       <Switch>
         <Route path="/restaurants/:id" render={(routerProps)=>
 

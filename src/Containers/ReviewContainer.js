@@ -13,7 +13,7 @@ class ReviewContainer extends Component {
     let redirect = () => this.props.history.push(`/restaurants/${item.restaurant.id}/item`)
   let commentsMapped = item.comments.map(comment => <Comment key={comment.id} comment={comment} itemId={item.id} redirect ={redirect}/>) || [];
     return (
-      <div>
+      <div className="parent-div">
         <Link to={`/restaurants/${item.restaurant.id}`}>Back to Menu</Link>
         <h2>{item.name} ${item.price}</h2>
         <h4>{"Ingredients: " + item.description}</h4>
@@ -22,7 +22,8 @@ class ReviewContainer extends Component {
         <Form itemId={item.id}></Form>
 
         <h3>Reviews:</h3>
-        <ul>{commentsMapped}</ul>
+        <ul className="reviews-ul">{commentsMapped}</ul>
+
       </div>
     )
   }

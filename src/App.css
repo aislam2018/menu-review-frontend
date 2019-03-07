@@ -4,16 +4,20 @@
 body {
   width: 100%;
   height: 100%;
-  background-color:rgba(196,	217,	233, .5);
-
+  /* background-color:rgba(196,	217,	233, .5); */
+  background-color: #262626;
+  color:#fff;
 
 }
 .container {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
+a{
+  color:#fff;
+}
 
-nav ul {
+/* nav ul {
   margin: 0;
   padding: 0.5;
   list-style: none;
@@ -33,8 +37,9 @@ nav a {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
-}
+} */
 .search-txt {
+  align-items: center;
   font-size: 20px;
   border: 3px solid #000000;
   height: 40px;
@@ -43,9 +48,11 @@ nav a {
   padding: 0px 10px;
 }
 .comment-txt {
+  margin-left: auto;
+  margin-right: auto;
   font-size: 12px;
   border: 3px solid #000000;
-  height: 20px;
+  height: 30px;
   width: 300px;
   border-radius: 50px;
   padding: 0px 10px;
@@ -59,6 +66,9 @@ nav a {
 .res-ul {
   list-style: none;
 }
+.reviews-ul {
+  list-style: none;
+}
 .menu-ul {
     list-style: none;
 }
@@ -66,24 +76,27 @@ nav a {
   display: inline-block;
 }
 .neon {
+
   margin: 0;
   padding: 0 20px;
   font-size: 3em;
   color: #fff;
-  text-shadow: 0 0 20px #ff005b;
+  text-shadow: 0 0 20px #1aff1a;
 }
 
 .neon:after {
+
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   padding: 0 20px;
   z-index: -1;
-  color: #ff005b;
+  color: #1aff1a;
   filter:blur(15px);
 }
 .neon:before{
+
   content: '';
   position: absolute;
   top: 0;
@@ -94,6 +107,15 @@ nav a {
   z-index: -2;
   opacity: .5;
   filter: blur(40px);
+}
+
+.parent-div {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reviews {
+  float:right;
 }
 
 /*https://images.unsplash.com/photo-1497888329096-51c27beff665?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80*/
