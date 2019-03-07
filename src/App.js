@@ -51,6 +51,7 @@ console.log("APP", this.props)
         <Navbar />
         <br></br>
         <br></br>
+        <center>
         <Switch>
           <Route path='/restaurants' render={() => <>
 
@@ -59,6 +60,7 @@ console.log("APP", this.props)
             <Route path='/login' render={() => <><Login/><br/><hr/><br/><Signup/></>}/>
           <Route path='/' component={Home} />
           </Switch>
+        </center>
         <div>
 
         </div>
